@@ -1,0 +1,5 @@
+table > thead {
+    vertical-align: bottom;
+    background: #1a1a46;
+    color: white;
+}
