@@ -8,8 +8,8 @@ import { HomeComponent } from './dashboard/home/home.component';
 import { TableComponent } from './components/table/table.component';
 import { DetailComponent } from './dashboard/detail/detail.component';
 import { RouterModule } from '@angular/router';
-import {AngularFireModule} from 'angularfire2';
-import {AngularFirestoreModule} from 'angularfire2/firestore';
+import {AngularFireModule} from '@angular/fire';
+import {AngularFirestoreModule} from '@angular/fire/firestore';
 
 @NgModule({
   declarations: [
