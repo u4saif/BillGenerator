@@ -3,11 +3,11 @@
 <ng-tamplate *ngFor="let tanent of tanents"> 
 <div class="card">
   <div class="card-header">
-    {{tanent.data.name}}
+    <span> <i class="fa fa-user" style="font-size:48px;"></i>{{tanent.data.name}}</span>
   </div>
   <div class="card-body">
     <blockquote class="blockquote mb-0">
-      <p>{{tanent.data.floor}}</p>
+     <span> <i class="fa fa-home" style="font-size:38px;"></i>{{tanent.data.floor}}</span>
       <footer class="blockquote-footer"><cite title="Source Title">{{tanent.data.address}}</cite></footer>
     </blockquote>
   </div>

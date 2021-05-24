@@ -1,17 +1,111 @@
 <ng-tamplate *ngFor="let user of userArr">
-  <p class="blockquote mt-3">Detail of tanent <b> {{user.data.name}}</b> </p>
+  <p class="blockquote mt-3">
+    Detail of tanent <b> {{ user.data.name }}</b>
+  </p>
 </ng-tamplate>
 <ng-tamplate *ngFor="let user of userArr">
   <div class="card">
     <div class="card-header">
-      {{user.data.name}}
+      <span>
+        <i class="fa fa-user" style="font-size: 48px"></i
+        >{{ user.data.name }}</span
+      >
     </div>
     <div class="card-body">
       <blockquote class="blockquote mb-0">
-        <p>{{user.data.floor}}</p>
-        <footer class="blockquote-footer"> <cite title="Source Title">{{user.data.address}}</cite></footer>
+        <p>{{ user.data.floor }}</p>
+        <footer class="blockquote-footer">
+          <cite title="Source Title">{{ user.data.address }}</cite>
+        </footer>
       </blockquote>
     </div>
+    <div class="card">
+      <button class="btn btn-primary" (click)="GenBill(user.id)" *ngIf="!isGenBill">
+        Generate Bill
+      </button>
+
+
+    <ng-tamplate *ngIf="isGenBill">
+      <div class="card-header mr-2">
+        <form action="">
+          <div class="input-group mb-2">
+            <div class="input-group-prepend">
+              <div class="input-group-text">Current Reading</div>
+            </div>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Current Reading"
+              name="cread"
+              [(ngModel)]="cread"
+            />
+          </div>
+
+          <div class="input-group mb-2">
+            <div class="input-group-prepend">
+              <div class="input-group-text">Previous Reading</div>
+            </div>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Previous Reading"
+              name="pread"
+              [(ngModel)]="pread"
+              readonly
+            />
+          </div>
+
+          <div class="input-group mb-2">
+            <div class="input-group-prepend">
+              <div class="input-group-text">Reading Date</div>
+            </div>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Reading Date"
+              name="date"
+              [(ngModel)]="date"
+              readonly
+            />
+          </div>
+
+          <div class="input-group mb-2">
+            <div class="input-group-prepend">
+              <div class="input-group-text">Total Units</div>
+            </div>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Total Units"
+              name="unit"
+              [(ngModel)]="unit"
+              readonly
+            />
+          </div>
+
+          <div class="input-group mb-2">
+            <div class="input-group-prepend">
+              <div class="input-group-text">Amount</div>
+            </div>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Amount"
+              name="amount"
+              [(ngModel)]="amount"
+              readonly
+            />
+          </div>
+
+          <div style="display: flex; justify-content: space-around">
+            <div class="btn btn-primary" style="margin-right: 2px;" (click)="close()">Close</div>
+            <div class="btn btn-success" (click)="done()">Done</div>
+          </div>
+        </form>
+      </div>
+    </ng-tamplate>
+  </div>
+
     <app-table></app-table>
   </div>
 </ng-tamplate>

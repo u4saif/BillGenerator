@@ -10,6 +10,7 @@ import { DetailComponent } from './dashboard/detail/detail.component';
 import { RouterModule } from '@angular/router';
 import {AngularFireModule} from '@angular/fire';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import {AngularFirestoreModule} from '@angular/fire/firestore';
     RouterModule,
     AngularFireModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

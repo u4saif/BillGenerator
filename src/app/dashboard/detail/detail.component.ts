@@ -1,3 +1,7 @@
+import {   
+  AngularFirestore,
+  AngularFirestoreCollection,
+  AngularFirestoreDocument, } from '@angular/fire/firestore';
 import { AppServiceService } from './../../services/app-service.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -10,7 +14,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class DetailComponent implements OnInit {
   id:string;
   userArr=[];
-  constructor(private dataService: AppServiceService,private route:ActivatedRoute) { }
+  isGenBill:boolean = false;
+  constructor(private dataService: AppServiceService,private route:ActivatedRoute, private afs:AngularFirestore) { }
 
   ngOnInit(): void {
       this.route.queryParams.subscribe((param)=>{
@@ -22,7 +27,27 @@ export class DetailComponent implements OnInit {
         
       })
      })
-    console.log(this.userArr);
+  }
+  cread;
+  pread=0;
+  date= new Date().toDateString();
+  unit=0;
+  amount=10;
+
+  GenBill(id){
+    this.isGenBill=true;
+ 
+  }
+
+  close(){
+    this.isGenBill=false;
+  }
+  done(){
+    this.afs.collection(`/tanent/${this.id}/bills`).add({'cread':this.cread,'pread':this.pread,'date':this.date,'unit':this.unit,'amount':this.amount});
+    alert('User Created Sucessfully!');
+    this.cread=null;
+    this.isGenBill=false;
+    
   }
 
 }
