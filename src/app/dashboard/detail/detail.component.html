@@ -38,6 +38,7 @@
               placeholder="Current Reading"
               name="cread"
               [(ngModel)]="cread"
+              (ngModelChange)="calAmt($event)"
             />
           </div>
 

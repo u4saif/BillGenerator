@@ -3,8 +3,9 @@
 <table class="table table-dark table-striped">
     <thead>
       <tr>
-        <th scope="col">Current Reading</th>
-        <th scope="col">Previous Reading</th>
+        <th scope="col">Sr.No</th>
+        <th scope="col">Current</th>
+        <th scope="col">Previous</th>
         <th scope="col">Date</th>
         <th scope="col">Unit</th>
         <th scope="col">Amount</th>
@@ -13,15 +14,16 @@
     </thead>
     <tbody>
  
-        <tr *ngFor='let item of billTableData'>
+        <tr *ngFor='let item of billTableData; index as i'>
+          <th scope="row">{{i+1}}</th>
           <th scope="row">{{item.cread}}</th>
           <th scope="row">{{item.pread}}</th>
           <th scope="row">{{item.date | date: 'mediumDate'}}</th>
           <th scope="row">{{item.unit}}</th>
           <th scope="row">{{item.amount}}</th>
           <th scope="row">
-            <i class="fa fa-check-circle"  style="font-size:18px; color: green;" aria-hidden="true">Paid</i>
-            <i class="fa fa-times" style="font-size:18px; color: red;" aria-hidden="true"> Due</i>
+            <i class="fa fa-check-circle"  style="font-size:18px; color: green;" aria-hidden="true" *ngIf="item.payStatus">Paid</i>
+            <i class="fa fa-times" style="font-size:18px; color: red;" aria-hidden="true" *ngIf="!item.payStatus"> Due</i>
           </th>
        
         </tr>
