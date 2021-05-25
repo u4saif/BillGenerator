@@ -3,3 +3,11 @@ table > thead {
     background: #1a1a46;
     color: white;
 }
+
+thead, tbody, tfoot, tr, td, th {
+    border-color: inherit;
+    border-style: solid;
+    border-width: 0;
+    font-size: smaller;
+    border:1.5px ridge dimgrey;
+}

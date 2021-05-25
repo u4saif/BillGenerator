@@ -15,27 +15,33 @@ export class DetailComponent implements OnInit {
   id:string;
   userArr=[];
   isGenBill:boolean = false;
+  cread;
+  pread=0;
+  date= new Date().toDateString();
+  unit=0;
+  amount=10;
+  billTableData:any =[];
+
   constructor(private dataService: AppServiceService,private route:ActivatedRoute, private afs:AngularFirestore) { }
 
   ngOnInit(): void {
       this.route.queryParams.subscribe((param)=>{
         this.id=JSON.parse(atob(param.id));
+       
       });
+     this.dataService.getBills(this.id).subscribe((a)=> this.billTableData=a);
      this.dataService.getTanentList().subscribe((users)=>{
       users.forEach((user)=>{
         if(user.id==this.id) { this.userArr.push(user)};
         
       })
      })
+    
   }
-  cread;
-  pread=0;
-  date= new Date().toDateString();
-  unit=0;
-  amount=10;
 
   GenBill(id){
     this.isGenBill=true;
+    console.log("hi", this.billTableData);
  
   }
 
@@ -49,5 +55,6 @@ export class DetailComponent implements OnInit {
     this.isGenBill=false;
     
   }
+
 
 }

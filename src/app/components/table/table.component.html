@@ -1,30 +1,32 @@
 <p>table works!</p>
+
 <table class="table table-dark table-striped">
     <thead>
       <tr>
-        <th scope="col">#</th>
-        <th scope="col">First</th>
-        <th scope="col">Last</th>
-        <th scope="col">Handle</th>
+        <th scope="col">Current Reading</th>
+        <th scope="col">Previous Reading</th>
+        <th scope="col">Date</th>
+        <th scope="col">Unit</th>
+        <th scope="col">Amount</th>
+        <th scope="col">Status</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td colspan="2">Larry the Bird</td>
-        <td>@twitter</td>
-      </tr>
+ 
+        <tr *ngFor='let item of billTableData'>
+          <th scope="row">{{item.data.cread}}</th>
+          <th scope="row">{{item.data.pread}}</th>
+          <th scope="row">{{item.data.date}}</th>
+          <th scope="row">{{item.data.unit}}</th>
+          <th scope="row">{{item.data.amount}}</th>
+          <th scope="row">
+            <i class="fa fa-check-circle"  style="font-size:18px; color: green;" aria-hidden="true">Paid</i>
+            <i class="fa fa-times" style="font-size:18px; color: red;" aria-hidden="true"> Due</i>
+          </th>
+       
+        </tr>
+ 
     </tbody>
   </table>
+
+ 

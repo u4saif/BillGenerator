@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter,} from '@angular/core';
 
 @Component({
   selector: 'app-table',
@@ -6,10 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./table.component.css']
 })
 export class TableComponent implements OnInit {
+@Input() billTableData:any; 
 
   constructor() { }
 
   ngOnInit(): void {
+    console.log("hi", this.billTableData);
   }
 
 }

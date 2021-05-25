@@ -11,6 +11,10 @@ interface tuser {
  data:{}
 }
 
+interface allBills{
+  data
+}
+
 @Injectable({
   providedIn: 'root',
 })
@@ -20,6 +24,9 @@ export class AppServiceService {
   allTanent: Observable<tuser[]>;
   UserCol: AngularFirestoreCollection<tuser>;
   UserDoc: AngularFirestoreDocument;
+
+  billCol:AngularFirestoreCollection;
+  allBills: Observable<allBills[]>;
 
   getTanentList() {
     this.UserCol = this.afs.collection('tanent');
@@ -35,6 +42,20 @@ export class AppServiceService {
         )
       );
       return  this.allTanent;
+  }
+
+  getBills(id){
+    this.billCol=this.afs.collection(`/tanent/${id}/bills`);
+    this.allBills=this.billCol.snapshotChanges()
+    .pipe(
+    map(actions=> {
+      return actions.map(a => {
+        const data = a.payload.doc.data() as allBills;
+        return  {data };
+      })
+    }))
+    
+    return this.allBills;
   }
  
 }
