@@ -14,11 +14,11 @@
     <tbody>
  
         <tr *ngFor='let item of billTableData'>
-          <th scope="row">{{item.data.cread}}</th>
-          <th scope="row">{{item.data.pread}}</th>
-          <th scope="row">{{item.data.date}}</th>
-          <th scope="row">{{item.data.unit}}</th>
-          <th scope="row">{{item.data.amount}}</th>
+          <th scope="row">{{item.cread}}</th>
+          <th scope="row">{{item.pread}}</th>
+          <th scope="row">{{item.date | date: 'mediumDate'}}</th>
+          <th scope="row">{{item.unit}}</th>
+          <th scope="row">{{item.amount}}</th>
           <th scope="row">
             <i class="fa fa-check-circle"  style="font-size:18px; color: green;" aria-hidden="true">Paid</i>
             <i class="fa fa-times" style="font-size:18px; color: red;" aria-hidden="true"> Due</i>

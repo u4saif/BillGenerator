@@ -17,7 +17,7 @@ export class DetailComponent implements OnInit {
   isGenBill:boolean = false;
   cread;
   pread=0;
-  date= new Date().toDateString();
+  date= new Date().toLocaleDateString();
   unit=0;
   amount=10;
   billTableData:any =[];
@@ -29,7 +29,12 @@ export class DetailComponent implements OnInit {
         this.id=JSON.parse(atob(param.id));
        
       });
-     this.dataService.getBills(this.id).subscribe((a)=> this.billTableData=a);
+     this.dataService.getBills(this.id).subscribe((a)=> {
+       a.forEach((b)=>{
+        this.billTableData.push(b.data);
+       });
+       
+      });
      this.dataService.getTanentList().subscribe((users)=>{
       users.forEach((user)=>{
         if(user.id==this.id) { this.userArr.push(user)};
