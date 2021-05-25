@@ -27,13 +27,19 @@ export class DetailComponent implements OnInit {
   ngOnInit(): void {
       this.route.queryParams.subscribe((param)=>{
         this.id=JSON.parse(atob(param.id));
-       
       });
-     this.dataService.getBills(this.id).subscribe((a)=> {
+       this.dataService.getBills(this.id).subscribe((a)=> {
+       this.billTableData=[];
        a.forEach((b)=>{
         this.billTableData.push(b.data);
        });
-       
+       this.billTableData.sort((a,b) =>{
+        let c = new Date(a.date);
+        let d= new Date(b.date);
+        return c > d ? 1 : c < d ? -1 : 0;
+     
+    }).reverse();
+      
       });
      this.dataService.getTanentList().subscribe((users)=>{
       users.forEach((user)=>{
