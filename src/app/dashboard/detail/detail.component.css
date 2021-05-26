@@ -1,16 +1,29 @@
-/* *{
-    margin: 5px;
-} */
+.card{
+    margin: 15px;
+ }
+ 
+.fa-user:before,.fa-home:before {
+    padding-right: 15px;
+}
+
+.blockquote-footer {
+    padding-top: 10px;
+    margin-left: 20px;
+}
+
 table > thead {
     vertical-align: bottom;
     background: #1a1a46;
     color: white;
 }
 
-.btn-primary, .btn-success {
+.btn-danger, .btn-success {
     width: 50%;
+    margin: 10px;
 }
 
-.card{
-    margin: 5px;
+.mt-3 {
+    margin-top: 1rem !important;
+    margin-left: 2rem;
+    font-weight: 700;
 }

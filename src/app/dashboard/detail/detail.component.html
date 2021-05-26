@@ -13,7 +13,8 @@
     </div>
     <div class="card-body">
       <blockquote class="blockquote mb-0">
-        <p>{{ user.data.floor }}</p>
+        <p><i class="fa fa-home" style="font-size:38px;"></i>
+      {{ user.data.floor }}</p>
         <footer class="blockquote-footer">
           <cite title="Source Title">{{ user.data.address }}</cite>
         </footer>
@@ -99,14 +100,13 @@
           </div>
 
           <div style="display: flex; justify-content: space-around">
-            <div class="btn btn-primary" style="margin-right: 2px;" (click)="close()">Close</div>
+            <div class="btn btn-danger" style="margin-right: 2px;" (click)="close()">Close</div>
             <div class="btn btn-success" (click)="done()">Done</div>
           </div>
         </form>
       </div>
     </ng-tamplate>
   </div>
-
-    <app-table [billTableData]="billTableData" (updateBill)="updateBillSatus($event)"></app-table>
   </div>
+  <app-table [billTableData]="billTableData" (updateBill)="updateBillSatus($event)"></app-table>
 </ng-tamplate>
