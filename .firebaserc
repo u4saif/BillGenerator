@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "bills4"
+  },
+  "targets": {
+    "bills4": {
+      "hosting": {
+        "ebillz": [
+          "ebillz"
+        ]
+      }
+    }
+  }
+}
