@@ -15,13 +15,11 @@ export class HomeComponent implements OnInit {
     this.dataService.getTanentList().subscribe((data)=> 
     {
       data.forEach((elm)=>{
-        console.log(elm.data,elm.id);
         this.tanents.push({id:elm.id,data:elm.data});
       })
     });
   }
   viewDetails(id){
-    console.log(id)
     this.router.navigate(['home', 'details'],{queryParams:{id:btoa(JSON.stringify(id))}
   });
 }

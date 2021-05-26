@@ -24,6 +24,7 @@ export class DetailComponent implements OnInit {
   amount = 0;
   payStaus:boolean=false;
   billTableData: any = [];
+  isPay: boolean;
 
   constructor(
     private dataService: AppServiceService,
@@ -60,7 +61,6 @@ export class DetailComponent implements OnInit {
 
   GenBill(id) {
     this.isGenBill = true;
-    console.log('hi', this.billTableData);
   }
 
   close() {
@@ -85,12 +85,18 @@ export class DetailComponent implements OnInit {
   }
 
   calAmt(val){
-    console.log(val);
     this.unit= Number(this.cread)-Number(this.pread);
     this.amount= this.unit*7;
   }
 
-  updateBillSatus(id: string) {
-    console.log(id);
+  updateBillSatus(Bid: string) {
+
+    this.afs
+      .doc(`/tanent/${this.id}/bills/${Bid}`)
+      .update({  
+        payStatus: true
+      });
+    alert('Bill Paid Sucessfully!');
+    //this.isPay = false;
   }
 }

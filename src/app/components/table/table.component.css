@@ -11,3 +11,35 @@ thead, tbody, tfoot, tr, td, th {
     font-size: smaller;
     border:1.5px ridge dimgrey;
 }
+.modelParent{
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0; 
+    background-color: #1c1a1ab5;
+}
+
+.model{
+    
+    padding: 1rem;
+    width: 50%;
+    height: 50%;
+    position: fixed;
+    top: 0;
+    transform: translate(50% , 50%);
+    background-color: yellow;
+}
+
+
+.alert-danger {
+    color: #842029;
+    background-color: #f8d7da;
+    border-color: #f5c2c7;
+    margin: 0;
+    padding: 0;
+    font-size: x-small;
+    margin-bottom: 2px;
+
+}
