@@ -11,13 +11,15 @@ import { RouterModule } from '@angular/router';
 import {AngularFireModule} from '@angular/fire';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
 import { FormsModule } from '@angular/forms';
+import { LoginComponent } from './dashboard/login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     TableComponent,
-    DetailComponent
+    DetailComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

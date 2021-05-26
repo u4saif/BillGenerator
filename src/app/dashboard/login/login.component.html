@@ -1,0 +1,38 @@
+<p>login works!</p>
+<main  > 
+    <div class="container">
+        <form #f=ngForm ngForm>
+         
+          <div class="row">
+      
+            <div class="col">
+              <div *ngIf="isInvalid" class="alert alert-danger" >
+                Invalid Username or Password
+              </div>
+              <input id="username" type="text" name="username" placeholder="Username"  ngModel #username='ngModel' required (change)='email(username)'  pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
+              <div *ngIf='username.touched && !username.value' class="invalid-feedback d-block" >
+             Email is required 
+              </div>
+              <div  *ngIf="username.errors && username.errors.pattern" class="invalid-feedback d-block">
+                Email is invalid 
+            </div>
+              <input minlength="6" maxlength="20" type="password" name="password" placeholder="Password"  id="password" ngModel #password='ngModel' required (change)='pass(password)'>
+              <div *ngIf='password.touched && !password.value' class="invalid-feedback d-block" >
+                Password is required 
+              </div>
+              
+              <div  *ngIf="password.errors && password.errors.minlength || password.errors && password.errors.maxlength" class="invalid-feedback d-block">
+                pasword must be minimun 6 characters and max 20 characters  long.
+            </div>
+            <br>
+               <button type="submit" class="btn btn-primary formItem" (click)="login()" [disabled]="!f.valid"> Login 
+                <span class="spinner-border" role="status" *ngIf="isLoaded">
+                      <span class="sr-only">Loading...</span>
+                  </span>
+               </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    
+    </main>
