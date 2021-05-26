@@ -6,13 +6,14 @@ import {
 import { AppServiceService } from './../../services/app-service.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-
+import { Output, EventEmitter } from '@angular/core';
 @Component({
   selector: 'app-detail',
   templateUrl: './detail.component.html',
   styleUrls: ['./detail.component.css'],
 })
 export class DetailComponent implements OnInit {
+ 
   id: string;
   userArr = [];
   isGenBill: boolean = false;
@@ -46,7 +47,7 @@ export class DetailComponent implements OnInit {
           return c > d ? 1 : c < d ? -1 : 0;
         })
         .reverse();
-        this.pread=this.billTableData[0]?.cread;
+        this.pread=this.billTableData[0]?.cread | 0;
     });
     this.dataService.getTanentList().subscribe((users) => {
       users.forEach((user) => {
@@ -87,5 +88,9 @@ export class DetailComponent implements OnInit {
     console.log(val);
     this.unit= Number(this.cread)-Number(this.pread);
     this.amount= this.unit*7;
+  }
+
+  updateBillSatus(id: string) {
+    console.log(id);
   }
 }

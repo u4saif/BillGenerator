@@ -51,6 +51,7 @@ export class AppServiceService {
     map(actions=> {
       return actions.map(a => {
         const data = a.payload.doc.data() as allBills;
+        data["id"]=a.payload.doc.id;
         return  {data };
       })
     }))

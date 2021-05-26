@@ -22,8 +22,8 @@
           <th scope="row">{{item.unit}}</th>
           <th scope="row">{{item.amount}}</th>
           <th scope="row">
-            <i class="fa fa-check-circle"  style="font-size:18px; color: green;" aria-hidden="true" *ngIf="item.payStatus">Paid</i>
-            <i class="fa fa-times" style="font-size:18px; color: red;" aria-hidden="true" *ngIf="!item.payStatus"> Due</i>
+            <i class="fa fa-check-circle"  style="font-size:23px; color: rgb(32, 190, 32);" aria-hidden="true" *ngIf="item.payStatus"></i>
+            <a (click)="update(item.id)"> <i class="fa fa-times" style="font-size:28px; color: rgb(172, 5, 5);" aria-hidden="true" *ngIf="!item.payStatus"></i></a>
           </th>
        
         </tr>
@@ -31,4 +31,3 @@
     </tbody>
   </table>
 
- 
