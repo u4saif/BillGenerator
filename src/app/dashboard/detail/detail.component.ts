@@ -19,7 +19,7 @@ export class DetailComponent implements OnInit {
   isGenBill: boolean = false;
   cread=0;
   pread = 0;
-  date = new Date().toLocaleDateString();
+  date = new Date().toLocaleString();
   unit = 0;
   amount = 0;
   payStaus:boolean=false;
@@ -43,8 +43,8 @@ export class DetailComponent implements OnInit {
       });
       this.billTableData
         .sort((a, b) => {
-          let c = new Date(a.date);
-          let d = new Date(b.date);
+          let c = new Date(a.date).toLocaleString();
+          let d = new Date(b.date).toLocaleString();
           return c > d ? 1 : c < d ? -1 : 0;
         })
         .reverse();
