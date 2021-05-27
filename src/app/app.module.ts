@@ -12,6 +12,7 @@ import {AngularFireModule} from '@angular/fire';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './dashboard/login/login.component';
+import { NavComponent } from './components/nav/nav.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { LoginComponent } from './dashboard/login/login.component';
     HomeComponent,
     TableComponent,
     DetailComponent,
-    LoginComponent
+    LoginComponent,
+    NavComponent
   ],
   imports: [
     BrowserModule,
