@@ -4,7 +4,7 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: url(../../../../public/favicon.ico) lightblue;
+  background: url(../../../assets/favicon.ico) lightblue;
   background-size:  50px 45px; /* Height: auto is to keep aspect ratio */
   backdrop-filter: blur(9px);
   -webkit-backdrop-filter: blur(9px);
