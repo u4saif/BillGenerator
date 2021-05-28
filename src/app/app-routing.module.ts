@@ -4,12 +4,14 @@ import { HomeComponent } from './dashboard/home/home.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGardService } from './services/auth/auth-gard.service';
+import { NotfoundComponent } from './components/notfound/notfound.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path:"login" ,component: LoginComponent},
   { path:"home" ,component: HomeComponent,canActivate:[AuthGardService]},
-  { path:"home/details" ,component: DetailComponent,canActivate:[AuthGardService]},
+  { path:"home/details" , component: DetailComponent,canActivate:[AuthGardService]},
+  { path:"**" , component: NotfoundComponent},
 ];
 
 @NgModule({

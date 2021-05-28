@@ -13,6 +13,7 @@ import {AngularFirestoreModule} from '@angular/fire/firestore';
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './dashboard/login/login.component';
 import { NavComponent } from './components/nav/nav.component';
+import { NotfoundComponent } from './components/notfound/notfound.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { NavComponent } from './components/nav/nav.component';
     TableComponent,
     DetailComponent,
     LoginComponent,
-    NavComponent
+    NavComponent,
+    NotfoundComponent
   ],
   imports: [
     BrowserModule,
