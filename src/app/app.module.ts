@@ -23,7 +23,7 @@ import { NotfoundComponent } from './components/notfound/notfound.component';
     DetailComponent,
     LoginComponent,
     NavComponent,
-    NotfoundComponent
+    NotfoundComponent,
   ],
   imports: [
     BrowserModule,

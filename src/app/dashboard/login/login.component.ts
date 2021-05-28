@@ -15,10 +15,14 @@ export class LoginComponent implements OnInit {
   password;
   isLoaded: boolean = false;
   isInvalid: boolean = false;
+  isUnautherized: boolean = false;
   user;
 
   googleSignin() {
     this.loginService.googleSignin();
+    this.loginService.isAllowedUser.subscribe((x)=>{
+      this.isUnautherized=x;
+    });
   }
   
   login() {
@@ -42,5 +46,9 @@ export class LoginComponent implements OnInit {
       )
     );
     this.router.navigate(['/home']);
+  }
+
+  ngOnDestroy(){
+    this.loginService.isAllowedUser.unsubscribe();
   }
 }

@@ -9,6 +9,9 @@
               <div *ngIf="isInvalid" class="alert alert-danger" >
                 Invalid Username or Password
               </div>
+              <div *ngIf="isUnautherized" class="alert alert-danger" >
+                You are not allowed to login please contact Admin
+              </div>
               <input id="username" type="text" name="username" placeholder="Username"  ngModel #username='ngModel' required (change)='email(username)'  pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
               <div *ngIf='username.touched && !username.value' class="invalid-feedback d-block" >
              Email is required 

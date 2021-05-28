@@ -1,3 +1,4 @@
+import { Observable, Subject } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireAuth } from '@angular/fire/auth';
@@ -8,6 +9,8 @@ import firebase from 'firebase/app';
   providedIn: 'root',
 })
 export class FireAuthService {
+
+  isAllowedUser = new Subject<any>();
   constructor(
     private auth: AngularFireAuth,
     private route: Router,
@@ -22,6 +25,9 @@ export class FireAuthService {
       window.localStorage.setItem('tokenId', JSON.stringify( userdata.credential["accessToken"]));
       this.route.navigate(['/home']);
       
+    }).catch((error) => {
+       console.log(error);
+       this.isAllowedUser.next(true);
     });
   }
 

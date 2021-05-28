@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
   tanents=[];
-  isLoaded:boolean =false;
+  isLoaded:boolean =true;
   constructor(private router:Router, private dataService: AppServiceService) { }
 
   ngOnInit(): void {

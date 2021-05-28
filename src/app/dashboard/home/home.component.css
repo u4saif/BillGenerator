@@ -42,8 +42,18 @@ table > thead {
   }
 
   .loadContaner{
-      display: flex;
-      margin: 2rem;
-      justify-content: center;
-      align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
   }
+
+  .spinner-border {
+    display: inline-block;
+    width: 4rem;
+    height: 4rem;
+    vertical-align: -0.125em;
+    border: 0.5em dotted #0b710bf7;
+    border-radius: 50%;
+    animation: 1s linear infinite spinner-border;
+}
