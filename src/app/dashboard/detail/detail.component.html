@@ -1,4 +1,8 @@
 <app-nav></app-nav>
+<div class="loadContaner" *ngIf="isLoaded">
+	<span class="spinner-border text-dark"></span>
+</div>
+
 <ng-tamplate *ngFor="let user of userArr">
   <p class="blockquote mt-3">
     Detail of tanent <b> {{ user.data.name }}</b>

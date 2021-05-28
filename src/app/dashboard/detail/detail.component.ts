@@ -25,7 +25,7 @@ export class DetailComponent implements OnInit {
   payStaus:boolean=false;
   billTableData: any = [];
   isPay: boolean;
-
+  isLoaded:boolean=false;
   constructor(
     private dataService: AppServiceService,
     private route: ActivatedRoute,
@@ -33,6 +33,7 @@ export class DetailComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.isLoaded=true;
     this.route.queryParams.subscribe((param) => {
       this.id = JSON.parse(atob(param.id));
     });
@@ -49,6 +50,8 @@ export class DetailComponent implements OnInit {
         })
         .reverse();
         this.pread=this.billTableData[0]?.cread | 0;
+        this.isLoaded=false;
+
     });
     this.dataService.getTanentList().subscribe((users) => {
       users.forEach((user) => {

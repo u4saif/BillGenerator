@@ -9,14 +9,17 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
   tanents=[];
+  isLoaded:boolean =false;
   constructor(private router:Router, private dataService: AppServiceService) { }
 
   ngOnInit(): void {
+    this.isLoaded=true;
     this.dataService.getTanentList().subscribe((data)=> 
     {
       data.forEach((elm)=>{
         this.tanents.push({id:elm.id,data:elm.data});
       })
+      this.isLoaded=false;
     });
   }
   viewDetails(id){

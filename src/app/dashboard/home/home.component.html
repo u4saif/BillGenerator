@@ -1,4 +1,9 @@
 <app-nav></app-nav>
+
+<div class="loadContaner" *ngIf="isLoaded">
+	<span class="spinner-border text-dark"></span>
+</div>
+
 <p class="blockquote mt-3">List of Tanents</p>
 <hr>
 <ng-tamplate *ngFor="let tanent of tanents"> 
