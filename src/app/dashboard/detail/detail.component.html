@@ -45,9 +45,12 @@
               name="cread"
               [(ngModel)]="cread"
               (ngModelChange)="calAmt($event)"
+              appNumberInput
+              [ngClass]="{
+                'invalid':invalidCread
+              }"
             />
           </div>
-
           <div class="input-group mb-2">
             <div class="input-group-prepend">
               <div class="input-group-text">Previous Reading</div>
@@ -106,7 +109,7 @@
 
           <div style="display: flex; justify-content: space-around">
             <div class="btn btn-danger" style="margin-right: 2px;" (click)="close()">Close</div>
-            <div class="btn btn-success" (click)="done()">Done</div>
+            <button class="btn btn-success" (click)="done()" [disabled]="invalidCread">Done</button>
           </div>
         </form>
       </div>

@@ -60,3 +60,8 @@ table > thead {
     border-radius: 50%;
     animation: 1s linear infinite spinner-border;
 }
+
+.invalid{
+    background-color: #ff0505a3;
+    color: white;
+}

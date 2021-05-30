@@ -17,7 +17,7 @@ export class DetailComponent implements OnInit {
   id: string;
   userArr = [];
   isGenBill: boolean = false;
-  cread=0;
+  cread=null;
   pread = 0;
   date = new Date().toLocaleString();
   unit = 0;
@@ -26,6 +26,7 @@ export class DetailComponent implements OnInit {
   billTableData: any = [];
   isPay: boolean;
   isLoaded:boolean=false;
+  invalidCread:boolean=false;
   constructor(
     private dataService: AppServiceService,
     private route: ActivatedRoute,
@@ -70,6 +71,10 @@ export class DetailComponent implements OnInit {
     this.isGenBill = false;
   }
   done() {
+    if(this.cread== null){
+      alert("pelase enter reading");
+      return;
+    }
     this.afs
       .collection(`/tanent/${this.id}/bills`)
       .add({
@@ -88,6 +93,7 @@ export class DetailComponent implements OnInit {
   }
 
   calAmt(val){
+    (this.cread < this.pread)? this.invalidCread=true: this.invalidCread=false;
     this.unit= Number(this.cread)-Number(this.pread);
     this.amount= this.unit*7;
   }

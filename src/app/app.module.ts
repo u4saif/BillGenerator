@@ -14,6 +14,7 @@ import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './dashboard/login/login.component';
 import { NavComponent } from './components/nav/nav.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
+import { NumberInputDirective } from './directive/number-input.directive';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { NotfoundComponent } from './components/notfound/notfound.component';
     LoginComponent,
     NavComponent,
     NotfoundComponent,
+    NumberInputDirective,
   ],
   imports: [
     BrowserModule,
